@@ -17,4 +17,6 @@ add_executable(differently main.cpp
         src/ast/abstract/UnaryOpNode.cpp
         src/ast/concrete/atoms/VariableNode.cpp
         src/ast/concrete/atoms/VariableNode.h
+        src/ast/concrete/binaryops/AddNode.cpp
+        src/ast/concrete/binaryops/AddNode.h
 )
