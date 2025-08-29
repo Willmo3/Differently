@@ -1,8 +1,8 @@
 #include <iostream>
 #include <ostream>
 
-#include "src/ast/concrete/ConstantNode.h"
-#include "src/ast/concrete/VariableNode.h"
+#include "src/ast/concrete/atoms/ConstantNode.h"
+#include "src/ast/concrete/atoms/VariableNode.h"
 #include "src/ast/visitor/PostorderVisitor.h"
 
 int main() {
