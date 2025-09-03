@@ -19,4 +19,6 @@ add_executable(differently main.cpp
         src/ast/concrete/atoms/VariableNode.h
         src/ast/concrete/binaryops/AddNode.cpp
         src/ast/concrete/binaryops/AddNode.h
+        src/ast/concrete/binaryops/MultNode.cpp
+        src/ast/concrete/binaryops/MultNode.h
 )

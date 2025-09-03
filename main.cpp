@@ -4,6 +4,7 @@
 #include "src/ast/concrete/atoms/ConstantNode.h"
 #include "src/ast/concrete/atoms/VariableNode.h"
 #include "src/ast/concrete/binaryops/AddNode.h"
+#include "src/ast/concrete/binaryops/MultNode.h"
 #include "src/ast/visitor/PostorderVisitor.h"
 
 int main() {
@@ -14,6 +15,11 @@ int main() {
     PostorderVisitor visitor = PostorderVisitor();
     visitor.visit(&add_node);
 
-    std::cout << add_node.primal_value() << std::endl;
-    std::cout << add_node.tangent_value() << std::endl;
+    VariableNode variable2 = VariableNode(2);
+    VariableNode variable3 = VariableNode(2);
+    MultNode mult_node = MultNode(&variable2, &variable3);
+
+    visitor.visit(&mult_node);
+
+    std::cout << mult_node.tangent_value() << std::endl;
 }
