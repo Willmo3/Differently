@@ -5,15 +5,16 @@
 
 class VariableNode: public AtomNode {
 public:
-    explicit VariableNode(double value);
+    VariableNode(double value, uint32_t label);
     ~VariableNode() override;
 
     void accept(const AstVisitor *visitor) override;
 
     double primal_value() override;
-    double tangent_value() override;
+    double partial_derivative(uint32_t var_label) override;
 
 private:
+    uint32_t label;
     double _primal_value;
     double _tangent_value;
 };

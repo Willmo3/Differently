@@ -5,7 +5,6 @@
 PostorderVisitor::PostorderVisitor() = default;
 PostorderVisitor::~PostorderVisitor() = default;
 
-
 void PostorderVisitor::visit(AtomNode *node) {
     node->accept(this);
 }

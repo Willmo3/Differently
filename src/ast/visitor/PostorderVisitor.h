@@ -7,7 +7,7 @@ class PostorderVisitor: AstVisitor {
     public:
         PostorderVisitor();
 
-        ~PostorderVisitor();
+        ~PostorderVisitor() override;
 
         void visit(AstNode *node) override;
         void visit(AtomNode *node) override;

@@ -13,12 +13,6 @@ public:
     ~MultNode() override;
 
     void accept(const AstVisitor *visitor) override;
-    double primal_value() override;
-    double tangent_value() override;
-
-private:
-    double _primal_value;
-    double _tangent_value;
 };
 
 

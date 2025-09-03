@@ -7,10 +7,16 @@ class BinaryOpNode: public AstNode {
         BinaryOpNode(AstNode *left, AstNode *right);
         ~BinaryOpNode() override;
 
-        void accept(const AstVisitor *visitor) override = 0;
+        double primal_value() override;
+        double partial_derivative(uint32_t variable_label) override;
 
+        void accept(const AstVisitor *visitor) override = 0;
         AstNode *left() const;
         AstNode *right() const;
+
+    protected:
+        double _primal_value;
+        double _partial_derivatives[3];
 
     private:
         AstNode *left_;
