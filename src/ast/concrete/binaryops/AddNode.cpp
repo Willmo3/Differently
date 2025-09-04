@@ -8,7 +8,8 @@ AddNode::~AddNode() = default;
 void AddNode::accept(const AstVisitor *visitor) {
     _primal_value = left()->primal_value() + right()->primal_value();
 
-    for (int i = 0; i < 3; i++) {
-        this->_partial_derivatives[i] = left()->partial_derivative(i) + right()->partial_derivative(i);
-    }
+    compute_partial_derivatives([this](const uint32_t i) -> double
+        {
+            return left()->partial_derivative(i) + right()->partial_derivative(i);
+        });
 }

@@ -16,10 +16,10 @@ int main() {
     visitor.visit(&add_node);
 
     VariableNode variable2 = VariableNode(2, 0);
-    VariableNode variable3 = VariableNode(2, 1);
+    VariableNode variable3 = VariableNode(2, 0);
     MultNode mult_node = MultNode(&variable2, &variable3);
 
     visitor.visit(&mult_node);
 
-    std::cout << mult_node.partial_derivative(2) << std::endl;
+    std::cout << mult_node.partial_derivative(0) << std::endl;
 }

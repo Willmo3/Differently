@@ -10,9 +10,9 @@ MultNode::~MultNode() = default;
 void MultNode::accept(const AstVisitor *visitor) {
     _primal_value = left()->primal_value() + right()->primal_value();
 
-    for (int i = 0; i < 3; i++) {
-        //gf' + fg'
-        this->_partial_derivatives[i] = right()->primal_value() * left()->partial_derivative(i)
-            + left()->primal_value() * right()->partial_derivative(i);
-    }
+    compute_partial_derivatives([this](const uint32_t i) -> double
+        {
+            return right()->primal_value() * left()->partial_derivative(i)
+                + left()->primal_value() * right()->partial_derivative(i);
+        });
 }
