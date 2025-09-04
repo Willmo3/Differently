@@ -14,10 +14,7 @@ public:
     MultNode(AstNode *left, AstNode *right);
     ~MultNode() override;
 
-    /*
-     * Evaluators
-     */
-    void evaluate() override;
+    BinaryOpType optype() override;
 };
 
 #endif //DIFFERENTLY_MULTNODE_H

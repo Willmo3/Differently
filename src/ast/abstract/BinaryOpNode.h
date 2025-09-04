@@ -6,6 +6,13 @@
 
 class BinaryOpNode: public AstNode {
     public:
+        enum BinaryOpType {
+            ADD = 0,
+            SUB,
+            MULT,
+            DIV,
+        };
+
         /*
          * Constructors
          */
@@ -17,13 +24,13 @@ class BinaryOpNode: public AstNode {
          */
         double primal_value() override;
         double partial_derivative(uint32_t variable_label) override;
-        AstNode *left() const;
-        AstNode *right() const;
+        virtual BinaryOpType optype() = 0;
 
         /*
          * Evaluators
          */
-        void evaluate() override = 0;
+        void accept(AstVisitor *visitor) override;
+
         /**
          * @brief Loop over all variables in this datum, computing their partial derivatives as specified by the subclass.
          * @param compute_pd_atom Function to compute a single partial derivative, given a variable.
@@ -35,8 +42,11 @@ class BinaryOpNode: public AstNode {
         double _partial_derivatives[3];
 
     private:
-        AstNode *left_;
-        AstNode *right_;
+        AstNode *left;
+        AstNode *right;
+
+    // Visitors need access to fields for evaluation.
+    friend class PostorderVisitor;
 };
 
 

@@ -19,8 +19,3 @@ double VariableNode::primal_value() {
 double VariableNode::partial_derivative(uint32_t variable_label) {
     return label == variable_label ? _tangent_value : 0;
 }
-
-/*
- * Evaluators -- since variables are ast leaves, no operation is needed.
- */
-void VariableNode::evaluate() {}

@@ -13,8 +13,3 @@ ConstantNode::~ConstantNode() = default;
  */
 double ConstantNode::primal_value() { return _primal_value; }
 double ConstantNode::partial_derivative(uint32_t index) { return 0; }
-
-/*
- * Evaluators. Note: constants always have value n, derivative 0 -- nothing to do!
- */
-void ConstantNode::evaluate() {}

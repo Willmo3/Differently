@@ -7,10 +7,12 @@ class UnaryOpNode: public AstNode {
         explicit UnaryOpNode(AstNode *child);
         ~UnaryOpNode() override;
 
-        void evaluate() override = 0;
-        AstNode *child() const;
+        void accept(AstVisitor* visitor) override;
     private:
-        AstNode *_child;
+        AstNode *child;
+
+    // Select visitors allowed private access to fields.
+    friend class PostorderVisitor;
 };
 
 #endif //DIFFERENTLY_UNARYNODE_H

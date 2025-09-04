@@ -14,11 +14,7 @@ public:
     AddNode(AstNode *left, AstNode *right);
     ~AddNode() override;
 
-    /*
-     * Evaluators
-     */
-    void evaluate() override;
+    BinaryOpType optype() override;
 };
-
 
 #endif //DIFFERENTLY_ADDNODE_H

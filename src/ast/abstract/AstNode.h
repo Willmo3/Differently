@@ -26,7 +26,7 @@ public:
     /**
      * @brief Function to perform when visited.
      */
-    virtual void evaluate() = 0;
+    virtual void accept(AstVisitor *visitor) = 0;
 };
 
 #endif //DIFFERENTLY_AST_H

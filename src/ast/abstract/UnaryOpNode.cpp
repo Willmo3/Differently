@@ -1,12 +1,17 @@
 #include "UnaryOpNode.h"
 
+#include "../visitor/AstVisitor.h"
+
 /*
  * Constructors
  */
-UnaryOpNode::UnaryOpNode(AstNode *child): _child(child) {}
+UnaryOpNode::UnaryOpNode(AstNode *child): child(child) {}
 UnaryOpNode::~UnaryOpNode() = default;
 
 /*
- * Accessors
+ * Traversers
  */
-AstNode *UnaryOpNode::child() const { return _child; }
+void UnaryOpNode::accept(AstVisitor *visitor) {
+    child->accept(visitor);
+    visitor->visit(this);
+}
