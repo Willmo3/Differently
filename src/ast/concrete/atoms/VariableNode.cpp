@@ -1,6 +1,6 @@
 #include "VariableNode.h"
 
-VariableNode::VariableNode(double value, uint32_t label): label(label), _primal_value(value), _tangent_value(1) {}
+VariableNode::VariableNode(const double value, const uint32_t label): label(label), _primal_value(value), _tangent_value(1) {}
 VariableNode::~VariableNode() = default;
 
 double VariableNode::primal_value() {
