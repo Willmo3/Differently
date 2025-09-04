@@ -5,7 +5,9 @@
 class ConstantNode final : public AstNode {
 public:
     explicit ConstantNode(double value);
-    void accept(const AstVisitor *visitor) override;
+    ~ConstantNode() override;
+
+    void evaluate() override;
 
     double primal_value() override;
     double partial_derivative(uint32_t) override;

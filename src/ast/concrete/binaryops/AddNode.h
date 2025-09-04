@@ -8,10 +8,16 @@
 
 class AddNode: public BinaryOpNode {
 public:
+    /*
+     * Constructors
+     */
     AddNode(AstNode *left, AstNode *right);
     ~AddNode() override;
 
-    void accept(const AstVisitor *visitor) override;
+    /*
+     * Evaluators
+     */
+    void evaluate() override;
 };
 
 

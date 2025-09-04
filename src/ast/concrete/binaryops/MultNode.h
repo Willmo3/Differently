@@ -6,14 +6,18 @@
 #define DIFFERENTLY_MULTNODE_H
 #include "../../abstract/BinaryOpNode.h"
 
-
 class MultNode: public BinaryOpNode {
 public:
+    /*
+     * Constructors
+     */
     MultNode(AstNode *left, AstNode *right);
     ~MultNode() override;
 
-    void accept(const AstVisitor *visitor) override;
+    /*
+     * Evaluators
+     */
+    void evaluate() override;
 };
-
 
 #endif //DIFFERENTLY_MULTNODE_H

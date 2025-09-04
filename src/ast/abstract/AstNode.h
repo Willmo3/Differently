@@ -9,6 +9,11 @@ class AstNode {
 public:
     virtual ~AstNode() = default;
 
+    /**
+     * @brief Current computed value of AST rooted here.
+     * Will be changed after visitor pass.
+     * @return The value of the ast
+     */
     virtual double primal_value() = 0;
 
     /**
@@ -18,7 +23,10 @@ public:
      */
     virtual double partial_derivative(uint32_t variable_label) = 0;
 
-    virtual void accept(const AstVisitor *visitor) = 0;
+    /**
+     * @brief Function to perform when visited.
+     */
+    virtual void evaluate() = 0;
 };
 
 #endif //DIFFERENTLY_AST_H

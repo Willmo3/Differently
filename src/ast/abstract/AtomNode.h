@@ -4,7 +4,7 @@
 
 class AtomNode: public AstNode {
 public:
-    void accept(const AstVisitor *visitor) override = 0;
+    void evaluate() override = 0;
 };
 
 

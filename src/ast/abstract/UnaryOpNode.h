@@ -7,7 +7,7 @@ class UnaryOpNode: public AstNode {
         explicit UnaryOpNode(AstNode *child);
         ~UnaryOpNode() override;
 
-        void accept(const AstVisitor *visitor) override = 0;
+        void evaluate() override = 0;
         AstNode *child() const;
     private:
         AstNode *_child;

@@ -5,10 +5,15 @@
 
 class PostorderVisitor: AstVisitor {
     public:
+        /*
+         * Constructors
+         */
         PostorderVisitor();
-
         ~PostorderVisitor() override;
 
+        /*
+         * Traversers
+         */
         void visit(AstNode *node) override;
         void visit(AtomNode *node) override;
         void visit(BinaryOpNode *node) override;
