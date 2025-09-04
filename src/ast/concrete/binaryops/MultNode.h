@@ -6,7 +6,7 @@
 #define DIFFERENTLY_MULTNODE_H
 #include "../../abstract/BinaryOpNode.h"
 
-class MultNode: public BinaryOpNode {
+class MultNode final : public BinaryOpNode {
 public:
     /*
      * Constructors

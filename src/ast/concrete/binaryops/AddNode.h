@@ -6,7 +6,7 @@
 #define DIFFERENTLY_ADDNODE_H
 #include "../../abstract/BinaryOpNode.h"
 
-class AddNode: public BinaryOpNode {
+class AddNode final : public BinaryOpNode {
 public:
     /*
      * Constructors

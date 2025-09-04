@@ -3,7 +3,7 @@
 #include "../../abstract/AstNode.h"
 
 
-class VariableNode: public AstNode {
+class VariableNode final : public AstNode {
 public:
     /*
      * Constructors

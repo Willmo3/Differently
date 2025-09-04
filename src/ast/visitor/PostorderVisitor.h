@@ -2,8 +2,7 @@
 #define DIFFERENTLY_POSTORDERVISITOR_H
 #include "AstVisitor.h"
 
-
-class PostorderVisitor: AstVisitor {
+class PostorderVisitor final : AstVisitor {
     public:
         /*
          * Constructors

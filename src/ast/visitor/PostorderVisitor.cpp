@@ -1,8 +1,4 @@
 #include "PostorderVisitor.h"
-
-#include <iostream>
-#include <stdexcept>
-
 #include "../abstract/UnaryOpNode.h"
 
 /*
@@ -10,7 +6,6 @@
  */
 PostorderVisitor::PostorderVisitor() = default;
 PostorderVisitor::~PostorderVisitor() = default;
-
 
 void PostorderVisitor::visit(BinaryOpNode *node) {
     // Postorder traversal: visit children first.
