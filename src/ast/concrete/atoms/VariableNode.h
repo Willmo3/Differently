@@ -1,9 +1,9 @@
 #ifndef DIFFERENTLY_VARIABLENODE_H
 #define DIFFERENTLY_VARIABLENODE_H
-#include "../../abstract/AtomNode.h"
+#include "../../abstract/AstNode.h"
 
 
-class VariableNode: public AtomNode {
+class VariableNode: public AstNode {
 public:
     /*
      * Constructors

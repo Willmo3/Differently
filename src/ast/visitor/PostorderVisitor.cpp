@@ -11,9 +11,7 @@
 PostorderVisitor::PostorderVisitor() = default;
 PostorderVisitor::~PostorderVisitor() = default;
 
-void PostorderVisitor::visit(AtomNode *node) {
-    node->evaluate();
-}
+
 void PostorderVisitor::visit(BinaryOpNode *node) {
     // Postorder traversal: visit children first.
     visit(node->left());
@@ -26,6 +24,7 @@ void PostorderVisitor::visit(UnaryOpNode *node) {
 
     node->evaluate();
 }
-// Function defined for typechecking, but should never be invoked.
+// Any other node must have no children, and so we simply evaluate.
 void PostorderVisitor::visit(AstNode *node) {
+    node->evaluate();
 }

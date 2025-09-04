@@ -1,6 +1,6 @@
 #ifndef DIFFERENTLY_NUMBERNODE_H
 #define DIFFERENTLY_NUMBERNODE_H
-#include "../../abstract/AtomNode.h"
+#include "../../abstract/AstNode.h"
 
 class ConstantNode final : public AstNode {
 public:

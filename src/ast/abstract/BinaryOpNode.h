@@ -30,8 +30,6 @@ class BinaryOpNode: public AstNode {
          */
         void compute_partial_derivatives(const std::function<double(uint32_t)>& compute_pd_atom);
 
-
-
     protected:
         double _primal_value;
         double _partial_derivatives[3];

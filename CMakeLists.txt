@@ -9,7 +9,6 @@ add_executable(differently main.cpp
         src/ast/abstract/UnaryOpNode.h
         src/ast/concrete/atoms/ConstantNode.cpp
         src/ast/concrete/atoms/ConstantNode.h
-        src/ast/abstract/AtomNode.h
         src/ast/visitor/AstVisitor.h
         src/ast/visitor/PostorderVisitor.cpp
         src/ast/visitor/PostorderVisitor.h

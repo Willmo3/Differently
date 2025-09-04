@@ -15,7 +15,6 @@ class PostorderVisitor: AstVisitor {
          * Traversers
          */
         void visit(AstNode *node) override;
-        void visit(AtomNode *node) override;
         void visit(BinaryOpNode *node) override;
         void visit(UnaryOpNode *node) override;
 };
