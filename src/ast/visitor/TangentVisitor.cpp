@@ -16,7 +16,7 @@ TangentVisitor::~TangentVisitor() = default;
 void TangentVisitor::visit(BinaryOpNode *node) {
     // Compute partial derivatives wrt all variables.
     for (uint32_t variable_index = 0; variable_index < 3; variable_index++) {
-        double computed_deriv;
+        double computed_deriv = -1;
 
         switch (node->optype()) {
             case BinaryOpNode::ADD: {
@@ -36,6 +36,17 @@ void TangentVisitor::visit(BinaryOpNode *node) {
                 computed_deriv = (node->right->primal_value() * node->left->partial_derivative(variable_index)
                     - node->left->primal_value() * node->right->partial_derivative(variable_index))
                     / std::pow(node->right->primal_value(), 2);
+                break;
+            }
+            // While exponentiation is a function and so subject to chain rule, it takes two arguments.
+            case BinaryOpNode::EXP: {
+                // Chain rule:
+                // f'(g(x)) * g'(x)
+                // Potential problem: complications when a is non-constant.
+                auto g_prime = node->right->partial_derivative(variable_index);
+                // ln(a) * a^x
+                auto f_prime = log(node->right->primal_value()) * node->primal_value();
+                computed_deriv = g_prime * f_prime;
                 break;
             }
             default: {

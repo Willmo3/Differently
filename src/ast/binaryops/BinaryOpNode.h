@@ -10,6 +10,7 @@ class BinaryOpNode: public AstNode {
             SUB,
             MULT,
             DIV,
+            EXP,
         };
 
         /*

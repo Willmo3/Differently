@@ -4,6 +4,7 @@
 
 #include "PrimalVisitor.h"
 
+#include <cmath>
 #include <iostream>
 /*
  * Constructors
@@ -31,6 +32,10 @@ void PrimalVisitor::visit(BinaryOpNode *node) {
         }
         case BinaryOpNode::DIV: {
             node->_primal_value = node->left->primal_value() / node->right->primal_value();
+            break;
+        }
+        case BinaryOpNode::EXP: {
+            node->_primal_value = pow(node->left->primal_value(), node->right->primal_value());
             break;
         }
         default: {
