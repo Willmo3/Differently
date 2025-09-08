@@ -5,7 +5,7 @@
 class UnaryOpNode: public AstNode {
     public:
         enum UnaryOpType {
-            EXP = 0,
+            // These would mostly be functions, like tanh.
         };
 
         /*
