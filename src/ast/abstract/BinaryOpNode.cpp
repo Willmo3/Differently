@@ -15,18 +15,12 @@ BinaryOpNode::~BinaryOpNode() = default;
 /*
  * Accessors
  */
-double BinaryOpNode::primal_value() {
-    return _primal_value;
-}
-double BinaryOpNode::partial_derivative(uint32_t variable_index) {
-    return this->_partial_derivatives[variable_index];
-}
 BinaryOpNode::BinaryOpType BinaryOpNode::optype() const {
     return _type;
 }
 
 /*
- * Computational functions
+ * Traversal
  */
 void BinaryOpNode::accept(AstVisitor *visitor) {
     left->accept(visitor);

@@ -18,14 +18,10 @@ class BinaryOpNode: public AstNode {
          */
         BinaryOpNode(BinaryOpType type, AstNode *left, AstNode *right);
         ~BinaryOpNode() override;
-
         /*
          * Accessors
          */
-        double primal_value() override;
-        double partial_derivative(uint32_t variable_label) override;
         BinaryOpType optype() const;
-
         /*
          * Evaluators
          */

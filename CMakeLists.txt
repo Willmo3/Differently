@@ -18,4 +18,5 @@ add_executable(differently main.cpp
         src/ast/concrete/atoms/VariableNode.h
         src/ast/abstract/AtomNode.cpp
         src/ast/abstract/AtomNode.h
+        src/ast/abstract/AstNode.cpp
 )
