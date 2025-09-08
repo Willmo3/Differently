@@ -16,7 +16,7 @@ BinaryOpNode::BinaryOpNode(AstNode *left, AstNode *right): left(left), right(rig
 BinaryOpNode::~BinaryOpNode() = default;
 
 /*
- * Accessirs
+ * Accessors
  */
 double BinaryOpNode::primal_value() {
     return _primal_value;
