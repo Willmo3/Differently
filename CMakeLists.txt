@@ -10,8 +10,8 @@ add_executable(differently main.cpp
         src/ast/atoms/ConstantNode.cpp
         src/ast/atoms/ConstantNode.h
         src/ast/visitor/AstVisitor.h
-        src/ast/visitor/PostorderVisitor.cpp
-        src/ast/visitor/PostorderVisitor.h
+        src/ast/visitor/TangentVisitor.cpp
+        src/ast/visitor/TangentVisitor.h
         src/ast/binaryops/BinaryOpNode.cpp
         src/ast/unaryops/UnaryOpNode.cpp
         src/ast/atoms/VariableNode.cpp
@@ -19,4 +19,6 @@ add_executable(differently main.cpp
         src/ast/atoms/AtomNode.cpp
         src/ast/atoms/AtomNode.h
         src/ast/AstNode.cpp
+        src/ast/visitor/PrimalVisitor.cpp
+        src/ast/visitor/PrimalVisitor.h
 )

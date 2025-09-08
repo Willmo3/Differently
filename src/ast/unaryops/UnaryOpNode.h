@@ -27,7 +27,7 @@ class UnaryOpNode: public AstNode {
         AstNode *child;
 
     // Select visitors allowed private access to fields.
-    friend class PostorderVisitor;
+    friend class TangentVisitor;
 };
 
 #endif //DIFFERENTLY_UNARYNODE_H

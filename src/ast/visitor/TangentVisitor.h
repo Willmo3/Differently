@@ -2,13 +2,13 @@
 #define DIFFERENTLY_POSTORDERVISITOR_H
 #include "AstVisitor.h"
 
-class PostorderVisitor final : public AstVisitor {
+class TangentVisitor final : public AstVisitor {
     public:
         /*
          * Constructors
          */
-        PostorderVisitor();
-        ~PostorderVisitor() override;
+        TangentVisitor();
+        ~TangentVisitor() override;
 
         /*
          * Traversers

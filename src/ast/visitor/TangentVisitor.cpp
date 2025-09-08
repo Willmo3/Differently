@@ -1,4 +1,4 @@
-#include "PostorderVisitor.h"
+#include "TangentVisitor.h"
 
 #include <iostream>
 #include <ostream>
@@ -7,41 +7,14 @@
 /*
  * Constructors
  */
-PostorderVisitor::PostorderVisitor() = default;
-PostorderVisitor::~PostorderVisitor() = default;
+TangentVisitor::TangentVisitor() = default;
+TangentVisitor::~TangentVisitor() = default;
 
 /*
  * Visit functions.
  */
-
-void PostorderVisitor::visit(BinaryOpNode *node) {
-    // Compute primal values wrt all vars.
-    // TODO: split primal computation into separate pass.
-    switch (node->optype()) {
-        case BinaryOpNode::ADD: {
-            node->_primal_value = node->left->primal_value() + node->right->primal_value();
-            break;
-        }
-        case BinaryOpNode::SUB: {
-            node->_primal_value = node->left->primal_value() - node->right->primal_value();
-            break;
-        }
-        case BinaryOpNode::MULT: {
-            node->_primal_value = node->left->primal_value() * node->right->primal_value();
-            break;
-        }
-        case BinaryOpNode::DIV: {
-            node->_primal_value = node->left->primal_value() / node->right->primal_value();
-            break;
-        }
-        default: {
-            std::cerr << "Not yet implemented" << std::endl;
-            break;
-        }
-    }
-
+void TangentVisitor::visit(BinaryOpNode *node) {
     // Compute partial derivatives wrt all variables.
-    // TODO: separate loop from selection to reduce nesting.
     for (uint32_t variable_index = 0; variable_index < 3; variable_index++) {
         double computed_deriv;
 
@@ -74,10 +47,10 @@ void PostorderVisitor::visit(BinaryOpNode *node) {
         node->_partial_derivatives[variable_index] = computed_deriv;
     }
 }
-void PostorderVisitor::visit(UnaryOpNode *node) {
+void TangentVisitor::visit(UnaryOpNode *node) {
     // TODO: not yet implemented -- no unary ops yet supported.
 }
-void PostorderVisitor::visit(AstNode *node) {
+void TangentVisitor::visit(AstNode *node) {
     // This should be invoked whenever an arbitrary node, i.e. an atom node, is visited.
     // Since atom nodes have their values defined at construction time, this is a no-op.
 }
