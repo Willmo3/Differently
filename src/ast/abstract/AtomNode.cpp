@@ -13,4 +13,3 @@ AtomNode::~AtomNode() = default;
 void AtomNode::accept(AstVisitor *visitor) {
     visitor->visit(this);
 }
-

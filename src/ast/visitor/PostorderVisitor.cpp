@@ -50,6 +50,10 @@ void PostorderVisitor::visit(BinaryOpNode *node) {
                 computed_deriv = node->left->partial_derivative(variable_index) + node->right->partial_derivative(variable_index);
                 break;
             }
+            case BinaryOpNode::SUB: {
+                computed_deriv = node->left->partial_derivative(variable_index) - node->right->partial_derivative(variable_index);
+                break;
+            }
             case BinaryOpNode::MULT: {
                 computed_deriv = node->right->primal_value() * node->left->partial_derivative(variable_index)
                                  + node->left->primal_value() * node->right->partial_derivative(variable_index);
