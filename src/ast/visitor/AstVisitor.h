@@ -1,8 +1,8 @@
 #ifndef DIFFERENTLY_ASTVISITOR_H
 #define DIFFERENTLY_ASTVISITOR_H
-#include "../abstract/BinaryOpNode.h"
-#include "../abstract/UnaryOpNode.h"
-#include "../abstract/AtomNode.h"
+#include "../binaryops/BinaryOpNode.h"
+#include "../unaryops/UnaryOpNode.h"
+#include "../atoms/AtomNode.h"
 
 class AstVisitor {
 public:

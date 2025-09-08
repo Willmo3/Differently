@@ -1,6 +1,6 @@
 #ifndef DIFFERENTLY_UNARYNODE_H
 #define DIFFERENTLY_UNARYNODE_H
-#include "AstNode.h"
+#include "../AstNode.h"
 
 class UnaryOpNode: public AstNode {
     public:

@@ -1,6 +1,6 @@
 #ifndef DIFFERENTLY_VARIABLENODE_H
 #define DIFFERENTLY_VARIABLENODE_H
-#include "../../abstract/AtomNode.h"
+#include "AtomNode.h"
 
 class VariableNode final : public AtomNode {
 public:

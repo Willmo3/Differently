@@ -1,8 +1,7 @@
 #ifndef DIFFERENTLY_BINARYNODE_H
 #define DIFFERENTLY_BINARYNODE_H
-#include <functional>
 
-#include "AstNode.h"
+#include "../AstNode.h"
 
 class BinaryOpNode: public AstNode {
     public:

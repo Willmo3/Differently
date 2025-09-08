@@ -1,7 +1,5 @@
 #include "ConstantNode.h"
 
-#include <iostream>
-
 /*
  * Constructors
  */

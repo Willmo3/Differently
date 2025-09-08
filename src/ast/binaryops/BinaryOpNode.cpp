@@ -1,9 +1,6 @@
 #include "BinaryOpNode.h"
 
-#include <cstring>
-#include <functional>
-
-#include "AstNode.h"
+#include "../AstNode.h"
 #include "../visitor/AstVisitor.h"
 
 /*

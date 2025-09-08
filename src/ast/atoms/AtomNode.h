@@ -4,7 +4,7 @@
 
 #ifndef DIFFERENTLY_ATOMNODE_H
 #define DIFFERENTLY_ATOMNODE_H
-#include "AstNode.h"
+#include "../AstNode.h"
 
 
 class AtomNode: public AstNode {
