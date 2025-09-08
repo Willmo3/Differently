@@ -31,12 +31,6 @@ class BinaryOpNode: public AstNode {
          */
         void accept(AstVisitor *visitor) override;
 
-        /**
-         * @brief Loop over all variables in this datum, computing their partial derivatives as specified by the subclass.
-         * @param compute_pd_atom Function to compute a single partial derivative, given a variable.
-         */
-        void compute_partial_derivatives(const std::function<double(uint32_t)>& compute_pd_atom);
-
     protected:
         double _primal_value;
         double _partial_derivatives[3];

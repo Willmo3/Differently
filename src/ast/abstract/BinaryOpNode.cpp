@@ -33,9 +33,3 @@ void BinaryOpNode::accept(AstVisitor *visitor) {
     right->accept(visitor);
     visitor->visit(this);
 }
-
-void BinaryOpNode::compute_partial_derivatives(const std::function<double(uint32_t)>& compute_pd_atom) {
-    for (uint32_t variable_index = 0; variable_index < 3; variable_index++) {
-        _partial_derivatives[variable_index] = compute_pd_atom(variable_index);
-    }
-}
