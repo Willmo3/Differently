@@ -16,7 +16,7 @@ class BinaryOpNode: public AstNode {
         /*
          * Constructors
          */
-        BinaryOpNode(AstNode *left, AstNode *right);
+        BinaryOpNode(BinaryOpType type, AstNode *left, AstNode *right);
         ~BinaryOpNode() override;
 
         /*
@@ -24,7 +24,7 @@ class BinaryOpNode: public AstNode {
          */
         double primal_value() override;
         double partial_derivative(uint32_t variable_label) override;
-        virtual BinaryOpType optype() = 0;
+        BinaryOpType optype() const;
 
         /*
          * Evaluators
@@ -34,6 +34,7 @@ class BinaryOpNode: public AstNode {
     protected:
         double _primal_value;
         double _partial_derivatives[3];
+        BinaryOpType _type;
 
     private:
         AstNode *left;

@@ -9,7 +9,7 @@
 /*
  * Constructors
  */
-BinaryOpNode::BinaryOpNode(AstNode *left, AstNode *right): left(left), right(right), _primal_value(0) {
+BinaryOpNode::BinaryOpNode(BinaryOpType type, AstNode *left, AstNode *right): _type(type), left(left), right(right), _primal_value(0) {
     // TODO: generalize to vector
     memset(&_partial_derivatives, 0, sizeof(_partial_derivatives));
 }
@@ -23,6 +23,9 @@ double BinaryOpNode::primal_value() {
 }
 double BinaryOpNode::partial_derivative(uint32_t variable_index) {
     return this->_partial_derivatives[variable_index];
+}
+BinaryOpNode::BinaryOpType BinaryOpNode::optype() const {
+    return _type;
 }
 
 /*

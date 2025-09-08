@@ -1,7 +1,6 @@
 #ifndef DIFFERENTLY_POSTORDERVISITOR_H
 #define DIFFERENTLY_POSTORDERVISITOR_H
 #include "AstVisitor.h"
-#include "../concrete/binaryops/AddNode.h"
 
 class PostorderVisitor final : public AstVisitor {
     public:
