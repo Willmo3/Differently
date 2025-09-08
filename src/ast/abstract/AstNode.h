@@ -7,7 +7,8 @@ class AstVisitor;
 
 class AstNode {
 public:
-    virtual ~AstNode() = default;
+    AstNode();
+    virtual ~AstNode();
 
     /**
      * @brief Current computed value of AST rooted here.
@@ -15,7 +16,6 @@ public:
      * @return The value of the ast
      */
     virtual double primal_value() = 0;
-
     /**
      * @brief Partial derivative of subtree wrt some variable.
      * @param variable_label Index of variable getting partial derivative
@@ -27,6 +27,10 @@ public:
      * @brief Function to perform when visited.
      */
     virtual void accept(AstVisitor *visitor) = 0;
+
+protected:
+    double _primal_value;
+    double _partial_derivatives[3];
 };
 
 #endif //DIFFERENTLY_AST_H

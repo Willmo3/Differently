@@ -3,7 +3,11 @@
 /*
  * Constructors
  */
-VariableNode::VariableNode(const double value, const uint32_t label): label(label), _primal_value(value), _tangent_value(1) {}
+VariableNode::VariableNode(const double value, const uint32_t label): label(label) {
+    _primal_value = value;
+    // Tangent value for this var when differentiated wrt = 1.
+    _partial_derivatives[label] = 1;
+}
 VariableNode::~VariableNode() = default;
 
 /*
@@ -17,5 +21,5 @@ double VariableNode::primal_value() {
  * @return the tangent value of this variable (i.e. 1) if differentiating wrt this var, otherwise 0.
  */
 double VariableNode::partial_derivative(uint32_t variable_label) {
-    return label == variable_label ? _tangent_value : 0;
+    return _partial_derivatives[variable_label];
 }

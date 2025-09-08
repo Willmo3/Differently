@@ -9,10 +9,7 @@
 /*
  * Constructors
  */
-BinaryOpNode::BinaryOpNode(BinaryOpType type, AstNode *left, AstNode *right): _type(type), left(left), right(right), _primal_value(0) {
-    // TODO: generalize to vector
-    memset(&_partial_derivatives, 0, sizeof(_partial_derivatives));
-}
+BinaryOpNode::BinaryOpNode(BinaryOpType type, AstNode *left, AstNode *right): _type(type), left(left), right(right) {}
 BinaryOpNode::~BinaryOpNode() = default;
 
 /*

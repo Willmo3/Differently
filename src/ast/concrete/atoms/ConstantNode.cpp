@@ -5,7 +5,9 @@
 /*
  * Constructors
  */
-ConstantNode::ConstantNode(const double value) : _primal_value(value), _tangent_value(0) {}
+ConstantNode::ConstantNode(const double value) {
+    _primal_value = value;
+}
 ConstantNode::~ConstantNode() = default;
 
 /*

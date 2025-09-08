@@ -32,8 +32,6 @@ class BinaryOpNode: public AstNode {
         void accept(AstVisitor *visitor) override;
 
     protected:
-        double _primal_value;
-        double _partial_derivatives[3];
         BinaryOpType _type;
 
     private:

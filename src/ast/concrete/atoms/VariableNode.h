@@ -17,8 +17,6 @@ public:
     double partial_derivative(uint32_t var_label) override;
 private:
     uint32_t label;
-    double _primal_value;
-    double _tangent_value;
 };
 
 

@@ -10,9 +10,6 @@ public:
 
     double primal_value() override;
     double partial_derivative(uint32_t) override;
-private:
-    double _primal_value;
-    double _tangent_value;
 };
 
 
