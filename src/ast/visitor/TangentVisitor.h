@@ -11,7 +11,7 @@ class TangentVisitor final : public AstVisitor {
         ~TangentVisitor() override;
 
         /*
-         * Traversers
+         * Visit functions
          */
         void visit(AstNode *node) override;
         void visit(BinaryOpNode *node) override;

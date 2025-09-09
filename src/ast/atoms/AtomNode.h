@@ -8,11 +8,17 @@
 
 
 class AtomNode: public AstNode {
-public:
-    AtomNode();
-    ~AtomNode() override;
+    public:
+        /*
+         * Constructors
+         */
+        AtomNode();
+        ~AtomNode() override;
 
-    void accept(AstVisitor* visitor) override;
+        /*
+         * Traversers
+         */
+        void accept(AstVisitor* visitor) override;
 };
 
 

@@ -9,7 +9,7 @@
 /*
  * Constructors
  */
-AstNode::AstNode() {
+AstNode::AstNode(): _numeric_value(0) {
     memset(&_primal_values, 0, sizeof(_primal_values));
     memset(&_partial_derivatives, 0, sizeof(_partial_derivatives));
 }

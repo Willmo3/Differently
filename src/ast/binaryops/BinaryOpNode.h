@@ -5,6 +5,10 @@
 
 class BinaryOpNode: public AstNode {
     public:
+        /**
+         * Set of supported binary operations
+         * TODO: remove exp as binop -- adding single base, in compliance with past ScalarFlow work.
+         */
         enum BinaryOpType {
             ADD = 0,
             SUB,

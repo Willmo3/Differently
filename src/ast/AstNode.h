@@ -3,6 +3,7 @@
 #include <cstdint>
 
 // Forward definition to pass typechecking.
+// Includes do not seem to work here.
 class AstVisitor;
 
 class AstNode {

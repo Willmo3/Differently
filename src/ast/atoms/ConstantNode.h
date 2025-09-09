@@ -5,6 +5,9 @@
 
 class ConstantNode final : public AtomNode {
 public:
+    /*
+     * Constructors
+     */
     explicit ConstantNode(double value);
     ~ConstantNode() override;
 };

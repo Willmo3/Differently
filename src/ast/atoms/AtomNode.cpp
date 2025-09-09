@@ -7,9 +7,15 @@
 
 #include "../visitor/AstVisitor.h"
 
+/*
+ * Constructors
+ */
 AtomNode::AtomNode() = default;
 AtomNode::~AtomNode() = default;
 
+/*
+ * Traversers
+ */
 void AtomNode::accept(AstVisitor *visitor) {
     visitor->visit(this);
 }

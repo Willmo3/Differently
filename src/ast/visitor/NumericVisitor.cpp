@@ -17,7 +17,6 @@ NumericVisitor::~NumericVisitor() = default;
 /*
  * Visit functions
  */
-
 void NumericVisitor::visit(BinaryOpNode *node) {
     // Compute primal values wrt all variables.
     switch (node->optype()) {

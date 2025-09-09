@@ -8,18 +8,18 @@
 
 class NumericVisitor final : public AstVisitor {
     public:
-    /*
-     * Constructors
-     */
-    NumericVisitor();
-    ~NumericVisitor() override;
+        /*
+         * Constructors
+         */
+        NumericVisitor();
+        ~NumericVisitor() override;
 
-    /*
-     * Traversers
-     */
-    void visit(AstNode *node) override;
-    void visit(BinaryOpNode *node) override;
-    void visit(UnaryOpNode * node) override;
+        /*
+         * Visit functions
+         */
+        void visit(AstNode *node) override;
+        void visit(BinaryOpNode *node) override;
+        void visit(UnaryOpNode * node) override;
 };
 
 

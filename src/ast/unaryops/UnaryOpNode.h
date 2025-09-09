@@ -1,6 +1,5 @@
 #ifndef DIFFERENTLY_UNARYNODE_H
 #define DIFFERENTLY_UNARYNODE_H
-#include <compare>
 
 #include "../AstNode.h"
 
