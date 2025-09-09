@@ -4,6 +4,7 @@
 #include <ostream>
 #include <cmath>
 
+#include "../unaryops/PowNode.h"
 
 /*
  * Constructors
@@ -54,14 +55,24 @@ void TangentVisitor::visit(UnaryOpNode *node) {
 
         switch (node->optype()) {
             case UnaryOpNode::POW: {
-                // TODO: need to know primal value of each variable in subexpr.
-
+                // For exponentiation, if the subvalue includes any terms from the corresponding var, the entire expression is preserved.
+                if (node->child->partial_primal(variable_index) == 0) {
+                    computed_deriv = 0;
+                } else {
+                    auto pow_node = dynamic_cast<PowNode *>(node);
+                    // d/dx x^c = cx^(c-1)
+                    computed_deriv = pow_node->exp_factor()
+                        * pow(pow_node->child->numeric_value(), pow_node->exp_factor() - 1);
+                }
+                break;
             }
             default: {
                 std::cerr << "Not yet implemented" << std::endl;
                 break;
             }
         }
+
+        node->_partial_derivatives[variable_index] = computed_deriv;
     }
 }
 void TangentVisitor::visit(AstNode *node) {

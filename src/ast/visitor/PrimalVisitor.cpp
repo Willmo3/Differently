@@ -4,8 +4,10 @@
 
 #include "PrimalVisitor.h"
 
+#include <cmath>
 #include <iostream>
 
+#include "../unaryops/PowNode.h"
 /*
  * Constructors
  */
@@ -34,7 +36,6 @@ void PrimalVisitor::visit(BinaryOpNode *node) {
                 break;
             }
             case BinaryOpNode::DIV: {
-                // TODO: evaluate if div by 0 a potential problem for other.
                 if (node->right->partial_primal(variable_index) == 0) {
                     computed_primal = 0;
                 } else {
@@ -53,7 +54,25 @@ void PrimalVisitor::visit(BinaryOpNode *node) {
 }
 void PrimalVisitor::visit(UnaryOpNode *node) {
     for (uint32_t variable_index = 0; variable_index < 3; variable_index++) {
-        // TODO: not yet implemented
+        double computed_primal = -1;
+
+        switch (node->optype()) {
+            // For exponentiation, if the subvalue includes any terms from the corresponding var, the entire expression is preserved.
+            case UnaryOpNode::POW: {
+                if (node->child->partial_primal(variable_index) == 0) {
+                    computed_primal = 0;
+                } else {
+                    computed_primal = pow(node->child->numeric_value(), dynamic_cast<PowNode *>(node)->exp_factor());
+                }
+                break;
+            }
+            default: {
+                std::cerr << "Not yet implemented" << std::endl;
+                break;
+            }
+        }
+
+        node->_primal_values[variable_index] = computed_primal;
     }
 }
 void PrimalVisitor::visit(AstNode *node) {

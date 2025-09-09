@@ -29,6 +29,7 @@ class UnaryOpNode: public AstNode {
         UnaryOpType _optype;
 
     // Select visitors allowed private access to fields.
+    friend class PrimalVisitor;
     friend class NumericVisitor;
     friend class TangentVisitor;
 };
