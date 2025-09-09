@@ -12,7 +12,7 @@ TangentVisitor::TangentVisitor() = default;
 TangentVisitor::~TangentVisitor() = default;
 
 /*
- * Visit functions.
+ * Visit functions
  */
 void TangentVisitor::visit(BinaryOpNode *node) {
     // Compute partial derivatives wrt all variables.
@@ -59,7 +59,7 @@ void TangentVisitor::visit(BinaryOpNode *node) {
         node->_partial_derivatives[variable_index] = computed_deriv;
     }
 }
-void TangentVisitor::visit(UnaryOpNode * node) {
+void TangentVisitor::visit(UnaryOpNode *node) {
     for (uint32_t variable_index = 0; variable_index < 3; variable_index++) {
         double computed_deriv = -1;
 

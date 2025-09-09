@@ -1,13 +1,14 @@
 #include <iostream>
 #include <ostream>
 
-#include "src/ast/atoms/ConstantNode.h"
 #include "src/ast/atoms/VariableNode.h"
 #include "src/ast/visitor/TangentVisitor.h"
+#include "src/ast/visitor/PrimalVisitor.h"
 #include "src/ast/visitor/NumericVisitor.h"
 
 int main() {
-    auto primal_visitor = NumericVisitor();
+    auto numeric_visitor = NumericVisitor();
+    auto primal_visitor = PrimalVisitor();
     auto tangent_visitor = TangentVisitor();
 
     // auto number = ConstantNode(3.0);
@@ -42,6 +43,7 @@ int main() {
     auto y = VariableNode(2, 0);
     auto exp = BinaryOpNode(BinaryOpNode::EXP, &x, &y);
 
+    exp.accept(&numeric_visitor);
     exp.accept(&primal_visitor);
     exp.accept(&tangent_visitor);
     std::cout << exp.numeric_value() << std::endl;

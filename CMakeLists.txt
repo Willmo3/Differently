@@ -23,4 +23,6 @@ add_executable(differently main.cpp
         src/ast/visitor/NumericVisitor.h
         src/ast/unaryops/PowNode.cpp
         src/ast/unaryops/PowNode.h
+        src/ast/visitor/PrimalVisitor.cpp
+        src/ast/visitor/PrimalVisitor.h
 )

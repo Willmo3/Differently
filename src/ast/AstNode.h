@@ -23,7 +23,7 @@ public:
      * @param variable_label Index of variable getting partial derivative.
      * @return The primal value of the expression wrt some variable.
      */
-    double partial_primal_value(uint32_t variable_label);
+    double partial_primal(uint32_t variable_label);
     /**
      * @brief Partial derivative of subtree wrt some variable.
      * @param variable_label Index of variable getting partial derivative

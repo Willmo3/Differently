@@ -1,5 +1,5 @@
-#ifndef DIFFERENTLY_POSTORDERVISITOR_H
-#define DIFFERENTLY_POSTORDERVISITOR_H
+#ifndef DIFFERENTLY_TANGENTVISITOR_H
+#define DIFFERENTLY_TANGENTVISITOR_H
 #include "AstVisitor.h"
 
 class TangentVisitor final : public AstVisitor {
@@ -18,5 +18,4 @@ class TangentVisitor final : public AstVisitor {
         void visit(UnaryOpNode * node) override;
 };
 
-
-#endif //DIFFERENTLY_POSTORDERVISITOR_H
+#endif //DIFFERENTLY_TANGENTVISITOR_H

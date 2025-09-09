@@ -2,8 +2,8 @@
 // Created by will on 9/8/25.
 //
 
-#ifndef DIFFERENTLY_PRIMALVISITOR_H
-#define DIFFERENTLY_PRIMALVISITOR_H
+#ifndef DIFFERENTLY_NUMERICVISITOR_H
+#define DIFFERENTLY_NUMERICVISITOR_H
 #include "AstVisitor.h"
 
 class NumericVisitor final : public AstVisitor {
@@ -23,4 +23,4 @@ class NumericVisitor final : public AstVisitor {
 };
 
 
-#endif //DIFFERENTLY_PRIMALVISITOR_H
+#endif //DIFFERENTLY_NUMERICVISITOR_H
