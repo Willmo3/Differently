@@ -18,12 +18,12 @@ AstNode::~AstNode() = default;
 /*
  * Accessors
  */
-double AstNode::numeric_value() {
+double AstNode::numeric_value() const {
     return _numeric_value;
 }
-double AstNode::partial_primal(uint32_t variable_label) {
+double AstNode::partial_primal(uint32_t variable_label) const {
     return _primal_values[variable_label];
 }
-double AstNode::partial_derivative(uint32_t variable_index) {
+double AstNode::partial_derivative(uint32_t variable_index) const {
     return _partial_derivatives[variable_index];
 }

@@ -39,17 +39,6 @@ void TangentVisitor::visit(BinaryOpNode *node) {
                     / std::pow(node->right->numeric_value(), 2);
                 break;
             }
-            // While exponentiation is a function and so subject to chain rule, it takes two arguments.
-            case BinaryOpNode::EXP: {
-                // Chain rule:
-                // f'(g(x)) * g'(x)
-                // Potential problem: complications when a is non-constant.
-                auto g_prime = node->right->partial_derivative(variable_index);
-                // ln(a) * a^x
-                auto f_prime = log(node->right->numeric_value()) * node->numeric_value();
-                computed_deriv = g_prime * f_prime;
-                break;
-            }
             default: {
                 std::cerr << "Not yet implemented" << std::endl;
                 break;

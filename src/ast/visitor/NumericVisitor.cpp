@@ -36,10 +36,6 @@ void NumericVisitor::visit(BinaryOpNode *node) {
             node->_numeric_value = node->left->numeric_value() / node->right->numeric_value();
             break;
         }
-        case BinaryOpNode::EXP: {
-            node->_numeric_value = pow(node->left->numeric_value(), node->right->numeric_value());
-            break;
-        }
         default: {
             std::cerr << "Not yet implemented" << std::endl;
             break;
