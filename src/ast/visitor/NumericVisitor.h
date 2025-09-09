@@ -6,21 +6,20 @@
 #define DIFFERENTLY_PRIMALVISITOR_H
 #include "AstVisitor.h"
 
-
-class PrimalVisitor final : public AstVisitor {
+class NumericVisitor final : public AstVisitor {
     public:
     /*
      * Constructors
      */
-    PrimalVisitor();
-    ~PrimalVisitor() override;
+    NumericVisitor();
+    ~NumericVisitor() override;
 
     /*
      * Traversers
      */
     void visit(AstNode *node) override;
     void visit(BinaryOpNode *node) override;
-    void visit(UnaryOpNode *node) override;
+    void visit(UnaryOpNode * node) override;
 };
 
 

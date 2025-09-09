@@ -1,23 +1,25 @@
 #ifndef DIFFERENTLY_UNARYNODE_H
 #define DIFFERENTLY_UNARYNODE_H
+#include <compare>
+
 #include "../AstNode.h"
 
 class UnaryOpNode: public AstNode {
     public:
         enum UnaryOpType {
-            // These would mostly be functions, like tanh.
+            POW = 0,
         };
 
         /*
          * Constructors
          */
-        explicit UnaryOpNode(AstNode *child);
+        explicit UnaryOpNode(AstNode *child, UnaryOpType type);
         ~UnaryOpNode() override;
 
         /*
          * Accessors
          */
-        virtual UnaryOpType optype() = 0;
+        UnaryOpType optype() const;
 
         /*
          * Evaluators
@@ -25,8 +27,10 @@ class UnaryOpNode: public AstNode {
         void accept(AstVisitor* visitor) override;
     private:
         AstNode *child;
+        UnaryOpType _optype;
 
     // Select visitors allowed private access to fields.
+    friend class NumericVisitor;
     friend class TangentVisitor;
 };
 

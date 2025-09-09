@@ -5,8 +5,13 @@
 /*
  * Constructors
  */
-UnaryOpNode::UnaryOpNode(AstNode *child): child(child) {}
+UnaryOpNode::UnaryOpNode(AstNode *child, UnaryOpType type): child(child), _optype(type) {}
 UnaryOpNode::~UnaryOpNode() = default;
+
+/*
+ * Accessors
+ */
+UnaryOpNode::UnaryOpType UnaryOpNode::optype() const { return _optype; }
 
 /*
  * Traversal

@@ -36,7 +36,7 @@ class BinaryOpNode: public AstNode {
 
     // Visitors need access to fields for evaluation.
     friend class TangentVisitor;
-    friend class PrimalVisitor;
+    friend class NumericVisitor;
 };
 
 

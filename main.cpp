@@ -4,10 +4,10 @@
 #include "src/ast/atoms/ConstantNode.h"
 #include "src/ast/atoms/VariableNode.h"
 #include "src/ast/visitor/TangentVisitor.h"
-#include "src/ast/visitor/PrimalVisitor.h"
+#include "src/ast/visitor/NumericVisitor.h"
 
 int main() {
-    auto primal_visitor = PrimalVisitor();
+    auto primal_visitor = NumericVisitor();
     auto tangent_visitor = TangentVisitor();
 
     // auto number = ConstantNode(3.0);
@@ -44,6 +44,6 @@ int main() {
 
     exp.accept(&primal_visitor);
     exp.accept(&tangent_visitor);
-    std::cout << exp.primal_value() << std::endl;
+    std::cout << exp.numeric_value() << std::endl;
     std::cout << exp.partial_derivative(0) << std::endl;
 }

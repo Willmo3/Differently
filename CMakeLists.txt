@@ -19,6 +19,8 @@ add_executable(differently main.cpp
         src/ast/atoms/AtomNode.cpp
         src/ast/atoms/AtomNode.h
         src/ast/AstNode.cpp
-        src/ast/visitor/PrimalVisitor.cpp
-        src/ast/visitor/PrimalVisitor.h
+        src/ast/visitor/NumericVisitor.cpp
+        src/ast/visitor/NumericVisitor.h
+        src/ast/unaryops/PowNode.cpp
+        src/ast/unaryops/PowNode.h
 )
