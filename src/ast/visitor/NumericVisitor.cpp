@@ -33,7 +33,11 @@ void NumericVisitor::visit(BinaryOpNode *node) {
             break;
         }
         case BinaryOpNode::DIV: {
-            node->_numeric_value = node->left->numeric_value() / node->right->numeric_value();
+            if (node->right->numeric_value() == 0) {
+                node->_numeric_value = 0;
+            } else {
+                node->_numeric_value = node->left->numeric_value() / node->right->numeric_value();
+            }
             break;
         }
         default: {
