@@ -3,7 +3,7 @@ project(differently)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(differently main.cpp
+add_executable(differently src/main.cpp
         src/ast/AstNode.h
         src/ast/binaryops/BinaryOpNode.h
         src/ast/unaryops/UnaryOpNode.h

@@ -1,12 +1,12 @@
 #include <iostream>
 #include <ostream>
 
-#include "src/ast/atoms/ConstantNode.h"
-#include "src/ast/atoms/VariableNode.h"
-#include "src/ast/unaryops/PowNode.h"
-#include "src/ast/visitor/TangentVisitor.h"
-#include "src/ast/visitor/PrimalVisitor.h"
-#include "src/ast/visitor/NumericVisitor.h"
+#include "ast/atoms/ConstantNode.h"
+#include "ast/atoms/VariableNode.h"
+#include "ast/unaryops/PowNode.h"
+#include "ast/visitor/TangentVisitor.h"
+#include "ast/visitor/PrimalVisitor.h"
+#include "ast/visitor/NumericVisitor.h"
 
 void test_add() {
     auto numeric_visitor = NumericVisitor();
