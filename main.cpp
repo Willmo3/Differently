@@ -106,7 +106,26 @@ void test_exp() {
     std::cout << exp.partial_derivative(1) << std::endl;
 }
 
+void test_tanh() {
+    auto numeric_visitor = NumericVisitor();
+    auto primal_visitor = PrimalVisitor();
+    auto tangent_visitor = TangentVisitor();
+
+    auto x = VariableNode(2, 0);
+    auto tanh = UnaryOpNode(&x, UnaryOpNode::TANH);
+
+    tanh.accept(&numeric_visitor);
+    tanh.accept(&primal_visitor);
+    tanh.accept(&tangent_visitor);
+
+    std::cout << tanh.numeric_value() << std::endl;
+    std::cout << tanh.partial_primal(0) << std::endl;
+    std::cout << tanh.partial_primal(1) << std::endl;
+    std::cout << tanh.partial_derivative(0) << std::endl;
+    std::cout << tanh.partial_derivative(1) << std::endl;
+}
+
 int main() {
-    test_exp();
+    test_tanh();
     return 0;
 }

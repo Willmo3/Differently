@@ -74,6 +74,14 @@ void PrimalVisitor::visit(UnaryOpNode *node) {
                 }
                 break;
             }
+            case UnaryOpNode::TANH: {
+                if (node->child->partial_primal(variable_index) == 0) {
+                    computed_primal = 0;
+                } else {
+                    computed_primal = tanh(node->child->numeric_value());
+                }
+                break;
+            }
             default: {
                 std::cerr << "Not yet implemented" << std::endl;
                 break;

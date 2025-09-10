@@ -59,6 +59,10 @@ void NumericVisitor::visit(UnaryOpNode *node) {
             node->_numeric_value = std::exp(node->child->numeric_value());
             break;
         }
+        case UnaryOpNode::TANH: {
+            node->_numeric_value = tanh(node->child->numeric_value());
+            break;
+        }
         default: {
             std::cerr << "Not yet implemented" << std::endl;
             break;

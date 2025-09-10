@@ -74,6 +74,15 @@ void TangentVisitor::visit(UnaryOpNode *node) {
                 }
                 break;
             }
+            case UnaryOpNode::TANH: {
+                if (node->child->partial_primal(variable_index) == 0) {
+                    computed_deriv = 0;
+                } else {
+                    // d/dx = sech^2 = 1/cosh^2
+                    computed_deriv = 1 / pow(cosh(node->child->numeric_value()), 2);
+                }
+                break;
+            }
             default: {
                 std::cerr << "Not yet implemented" << std::endl;
                 break;
