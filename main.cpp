@@ -66,7 +66,26 @@ void test_pow() {
     std::cout << pow.partial_derivative(1) << std::endl;
 }
 
+void test_root() {
+    auto numeric_visitor = NumericVisitor();
+    auto primal_visitor = PrimalVisitor();
+    auto tangent_visitor = TangentVisitor();
+
+    auto x = VariableNode(2, 0);
+    auto y = VariableNode(2, 0);
+    auto add = BinaryOpNode(BinaryOpNode::ADD, &x, &y);
+    auto pow = PowNode(&add, 0.5);
+
+    pow.accept(&numeric_visitor);
+    pow.accept(&primal_visitor);
+    pow.accept(&tangent_visitor);
+
+    std::cout << pow.numeric_value() << std::endl;
+    std::cout << pow.partial_primal(0) << std::endl;
+    std::cout << pow.partial_derivative(0) << std::endl;
+}
+
 int main() {
-    test_pow();
+    test_root();
     return 0;
 }
