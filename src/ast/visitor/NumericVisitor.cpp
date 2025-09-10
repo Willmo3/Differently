@@ -55,6 +55,10 @@ void NumericVisitor::visit(UnaryOpNode *node) {
             node->_numeric_value = pow(node->child->numeric_value(), dynamic_cast<PowNode *>(node)->exp_factor());
             break;
         }
+        case UnaryOpNode::EXP: {
+            node->_numeric_value = std::exp(node->child->numeric_value());
+            break;
+        }
         default: {
             std::cerr << "Not yet implemented" << std::endl;
             break;

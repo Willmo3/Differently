@@ -82,10 +82,31 @@ void test_root() {
 
     std::cout << pow.numeric_value() << std::endl;
     std::cout << pow.partial_primal(0) << std::endl;
+    std::cout << pow.partial_primal(1) << std::endl;
     std::cout << pow.partial_derivative(0) << std::endl;
+    std::cout << pow.partial_derivative(1) << std::endl;
+}
+
+void test_exp() {
+    auto numeric_visitor = NumericVisitor();
+    auto primal_visitor = PrimalVisitor();
+    auto tangent_visitor = TangentVisitor();
+
+    auto x = VariableNode(2, 0);
+    auto exp = UnaryOpNode(&x, UnaryOpNode::EXP);
+
+    exp.accept(&numeric_visitor);
+    exp.accept(&primal_visitor);
+    exp.accept(&tangent_visitor);
+
+    std::cout << exp.numeric_value() << std::endl;
+    std::cout << exp.partial_primal(0) << std::endl;
+    std::cout << exp.partial_primal(1) << std::endl;
+    std::cout << exp.partial_derivative(0) << std::endl;
+    std::cout << exp.partial_derivative(1) << std::endl;
 }
 
 int main() {
-    test_root();
+    test_exp();
     return 0;
 }

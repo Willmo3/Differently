@@ -7,6 +7,7 @@ class UnaryOpNode: public AstNode {
     public:
         enum UnaryOpType {
             POW = 0,
+            EXP = 1,
         };
 
         /*
